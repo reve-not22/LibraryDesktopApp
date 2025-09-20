@@ -38,6 +38,7 @@ public class App {
 			case 2:
 				int isAsc = scnr.nextInt();
 				System.out.println("Ascending(1) or descending(2)?");
+				
 				if (isAsc == 1) {
 					
 				}
@@ -46,15 +47,41 @@ public class App {
 				}
 				break;
 			case 3:
-				int isDesc = scnr.nextInt();
 				System.out.println("Ascending(1) or descending(2)?");
-				if (isDesc == 1) {
+				isAsc = scnr.nextInt();
+				
+				if (isAsc == 1) {
 					
 				}
-				else if (isDesc == 2) {
+				else if (isAsc == 2) {
 					
 				}
 				break;
+			}
+		}
+	}
+	
+	static void SortList(List<Book> bList, Boolean sortAuthor, Boolean sortAsc) {
+		if (sortAuthor) {
+			//sort by author
+			if (sortAsc) {
+				//sort ascending
+				;
+			}
+			else {
+				//desc
+				
+			}
+		}
+		else {
+			//sort by publication
+			if (sortAsc) {
+				//sort ascending
+				
+			}
+			else {
+				//desc
+				
 			}
 		}
 	}
@@ -65,22 +92,14 @@ public class App {
 			System.out.println("Input book ID");
 			int id = scnr.nextInt();
 			
-			for (Book b : bList) {
-				if (id == b.book_id) {
-					System.out.println(b.toString());
-				}
-			}
+			
 		}
 		else {
 			//search by isbn
 			System.out.println("Input ISBN");
 			String isbn = scnr.next();
 			
-			for (Book b : bList) {
-				if (isbn.trim().compareTo(b.isbn) == 0) {
-					System.out.println(b.toString());
-				}
-			}
+			
 		}
 	}
 	

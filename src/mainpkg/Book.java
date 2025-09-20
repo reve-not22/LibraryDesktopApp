@@ -38,4 +38,9 @@ public class Book {
 		this.ratings_5 = Integer.parseInt(ratings_5);
 		this.image_url = image_url;
 	}
+	
+	@Override
+	public String toString() {
+		return this.title + ": by " + this.authors;
+	}
 }

@@ -3,18 +3,26 @@ package mainpkg;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
-	
-	static ArrayList<Book> bookList = new ArrayList<>();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ReadFile(new File("books.csv"));
+		List<Book> bookArrList = ReadFile(new ArrayList<>(), new File("books.csv"));
+		List<Book> bookLinkedList = ReadFile(new LinkedList<>(), new File("books.csv"));
+		
+		for (Book b : bookArrList) {
+			System.out.println(b.toString());
+		}
+		for (Book b : bookLinkedList) {
+			System.out.println(b.toString());
+		}
 	}
 	
-	public static void ReadFile(File f) {
+	public static List<Book> ReadFile(List<Book> bookList, File f) {
 		try (Scanner scnr = new Scanner(f)) {
 			while (scnr.hasNextLine()) {
 				String line = scnr.nextLine();
@@ -24,7 +32,6 @@ public class App {
 							lineArr[6], lineArr[7], lineArr[8], lineArr[9], lineArr[10], lineArr[11], lineArr[12],
 							lineArr[13], lineArr[14], lineArr[15], lineArr[16], lineArr[17], lineArr[18], lineArr[19],
 							lineArr[20], lineArr[21]);
-					System.out.println(b);
 					bookList.add(b);
 				}
 			}
@@ -33,6 +40,8 @@ public class App {
 			System.out.println("An error occurred");
 			e.printStackTrace();
 		}
+		
+		return bookList;
 	}
 
 }

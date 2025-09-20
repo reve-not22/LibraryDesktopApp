@@ -14,11 +14,73 @@ public class App {
 		List<Book> bookArrList = ReadFile(new ArrayList<>(), new File("books.csv"));
 		List<Book> bookLinkedList = ReadFile(new LinkedList<>(), new File("books.csv"));
 		
-		for (Book b : bookArrList) {
-			System.out.println(b.toString());
+		Run(bookArrList);
+	}
+	
+	static void Run(List<Book> bList) {
+		Boolean isRunning = true;
+		while (isRunning) {
+			System.out.println("1: Search for records, 2: Sort by author, 3: Sort by publication");
+			Scanner scnr = new Scanner(System.in);
+			
+			switch(scnr.nextInt()) {
+			case 1:
+				System.out.println("book_id(1) or isbn(2)?");
+				int recordType = scnr.nextInt();
+				
+				if (recordType == 1) {
+					SearchList(bList, true, scnr);
+				}
+				else if (recordType == 2) {
+					SearchList(bList, false, scnr);
+				}
+				break;
+			case 2:
+				int isAsc = scnr.nextInt();
+				System.out.println("Ascending(1) or descending(2)?");
+				if (isAsc == 1) {
+					
+				}
+				else if (isAsc == 2) {
+					
+				}
+				break;
+			case 3:
+				int isDesc = scnr.nextInt();
+				System.out.println("Ascending(1) or descending(2)?");
+				if (isDesc == 1) {
+					
+				}
+				else if (isDesc == 2) {
+					
+				}
+				break;
+			}
 		}
-		for (Book b : bookLinkedList) {
-			System.out.println(b.toString());
+	}
+	
+	static void SearchList(List<Book> bList, Boolean searchBookID, Scanner scnr) {
+		if (searchBookID) {
+			//search by book ID
+			System.out.println("Input book ID");
+			int id = scnr.nextInt();
+			
+			for (Book b : bList) {
+				if (id == b.book_id) {
+					System.out.println(b.toString());
+				}
+			}
+		}
+		else {
+			//search by isbn
+			System.out.println("Input ISBN");
+			String isbn = scnr.next();
+			
+			for (Book b : bList) {
+				if (isbn.trim().compareTo(b.isbn) == 0) {
+					System.out.println(b.toString());
+				}
+			}
 		}
 	}
 	
@@ -42,6 +104,12 @@ public class App {
 		}
 		
 		return bookList;
+	}
+	
+	static void ShowTopTenRecords(List<Book> bList) {
+		for (int i = 0; i < 10; i++) {
+			System.out.println(bList.get(i).toString());
+		}
 	}
 
 }

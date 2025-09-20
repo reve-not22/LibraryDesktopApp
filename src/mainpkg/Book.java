@@ -2,11 +2,11 @@ package mainpkg;
 
 public class Book {
 	int book_id, goodreads_book_id, best_book_id, 
-	work_id, books_count, isbn, ratings_count,
+	work_id, books_count, ratings_count,
 	work_ratings_count, work_text_reviews_count, 
 	ratings_1, ratings_2, ratings_3, ratings_4, ratings_5;
 	long isbn13;
-	String authors, original_title, title, langauge_code, image_url;
+	String authors, original_title, title, langauge_code, image_url, isbn;
 	float original_publication_year, average_rating;
 	
 	public Book(String book_id, String goodreads_book_id, String best_book_id, String work_id, String books_count, String isbn, 
@@ -20,7 +20,7 @@ public class Book {
 		this.best_book_id = Integer.parseInt(best_book_id);
 		this.work_id = Integer.parseInt(work_id);
 		this.books_count = Integer.parseInt(books_count);
-		this.isbn = Integer.parseInt(isbn);
+		this.isbn = isbn;
 		this.isbn13 = (long) Double.parseDouble(isbn13);
 		this.authors = authors;
 		this.original_publication_year = Float.parseFloat(original_publication_year);

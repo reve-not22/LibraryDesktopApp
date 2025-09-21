@@ -20,10 +20,13 @@ public class App {
 	static void Run(List<Book> bList) {
 		Boolean isRunning = true;
 		while (isRunning) {
-			System.out.println("1: Search for records, 2: Sort by author, 3: Sort by publication");
+			System.out.println("1: Search for records, 2: Sort by author, 3: Sort by publication, 0: quit");
 			Scanner scnr = new Scanner(System.in);
 			
 			switch(scnr.nextInt()) {
+			case 0:
+				isRunning = false;
+				break;
 			case 1:
 				System.out.println("book_id(1) or isbn(2)?");
 				int recordType = scnr.nextInt();

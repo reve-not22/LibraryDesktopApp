@@ -95,15 +95,19 @@ public class App {
 			System.out.println("Input book ID");
 			int id = scnr.nextInt();
 			
-			
+			//if arraylist, do binary search, otherwise do linear search
 		}
 		else {
 			//search by isbn
 			System.out.println("Input ISBN");
 			String isbn = scnr.next();
 			
-			
+			//if arraylist, do binary search, otherwise do linear search
 		}
+	}
+	
+	static void BinarySearch(List<Book> bList, int term) {
+		
 	}
 	
 	public static List<Book> ReadFile(List<Book> bookList, File f) {

@@ -21,9 +21,22 @@ public class Book {
 		this.work_id = Integer.parseInt(work_id);
 		this.books_count = Integer.parseInt(books_count);
 		this.isbn = isbn;
-		this.isbn13 = (long) Double.parseDouble(isbn13);
 		this.authors = authors;
-		this.original_publication_year = Float.parseFloat(original_publication_year);
+		
+		try {
+			this.isbn13 = (long) Double.parseDouble(isbn13);
+		}
+		catch (java.lang.NumberFormatException e) {
+			this.isbn13 = -1;
+		}
+		
+		try {
+			this.original_publication_year = Float.parseFloat(original_publication_year);
+		}
+		catch (java.lang.NumberFormatException e) {
+			this.original_publication_year = -1.0f;
+		}
+		
 		this.original_title = original_title;
 		this.title = title;
 		this.langauge_code = langauge_code;
@@ -39,12 +52,15 @@ public class Book {
 		this.image_url = image_url;
 	}
 	
+	public String getAuthors() { return this.authors; }
+	public Float getPublicationYear() { return this.original_publication_year; }
+	
 	public Book(int book_id) {
 		this.book_id = book_id;
 	}
 	
 	@Override
 	public String toString() {
-		return this.title + ": by " + this.authors;
+		return this.title + "; by " + this.authors + "; published on " + this.original_publication_year;
 	}
 }

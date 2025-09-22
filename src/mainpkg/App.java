@@ -17,7 +17,7 @@ public class App {
 		List<Book> bookArrList = ReadFile(new ArrayList<>(), new File("booksL.csv"));
 		List<Book> bookLinkedList = ReadFile(new LinkedList<>(), new File("booksL.csv"));
 		
-		Run(bookLinkedList);
+		Run(bookArrList);
 	}
 	
 	static void Run(List<Book> bList) {
@@ -57,8 +57,11 @@ public class App {
 				SortList(bList, false, isAsc);
 				break;
 			case 5:
-				testBinarySearchPerformance(bList, 3);
-				testLinearSearchPerformance(bList, 3);
+				List<Book> bookArrList = ReadFile(new ArrayList<>(), new File("booksL.csv"));
+				List<Book> bookLinkedList = ReadFile(new LinkedList<>(), new File("booksL.csv"));
+				
+				testBinarySearchPerformance(bookArrList, 3);
+				testLinearSearchPerformance(bookLinkedList, 3);
 			}
 		}
 	}

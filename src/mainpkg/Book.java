@@ -39,6 +39,10 @@ public class Book {
 		this.image_url = image_url;
 	}
 	
+	public Book(int book_id) {
+		this.book_id = book_id;
+	}
+	
 	@Override
 	public String toString() {
 		return this.title + ": by " + this.authors;

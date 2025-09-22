@@ -133,5 +133,52 @@ public class App {
 			System.out.println(bList.get(i).toString());
 		}
 	}
+	
+	
+	//Binary search method
+	static int binarySearchByBookId(List<Book> sortedList, int targetId) {
+		int low = 0;
+		int high = sortedList.size() - 1;
+		
+		while (low <= high) {
+			int mid = low + (high - low) / 2;
+			Book midBook = sortedList.get(mid);
+			
+			if (midBook.book_id == targetId) {
+				return mid;
+			} else if (midBook.book_id < targetId) {
+				low = mid + 1;
+			} else {
+				high = mid - 1;
+			}
+		}
+		
+		return -1;
+	}
+	
+	//Performance testing method
+	static void testBinarySearchPerformance(List<Book> books, int numTests) {
+		
+		books.sort((b1, b2) -> Integer.compare(b1.book_id, b2.book_id));
+		
+		List<Integer> targetIds = new ArrayList<>();
+		for (int i = 0; i <numTests && i < books.size(); i++) {
+			targetIds.add(books.get(i).book_id);
+		}
+		
+		long startTime = System.nanoTime();
+		
+		for (int id : targetIds) {
+			int resultIndex = binarySearchByBookId(books, id);
+			
+		}
+		
+		long endTime = System.nanoTime();
+		long duration = endTime - startTime;
+		double durationInMillis = duration / 1_000_000.0;
+		
+		System.out.println("Performed " + numTests + " binary searches in " + durationInMillis + " ms");
+	}
+	
 
 }

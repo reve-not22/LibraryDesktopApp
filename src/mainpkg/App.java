@@ -39,26 +39,16 @@ public class App {
 				}
 				break;
 			case 2:
-				int isAsc = scnr.nextInt();
-				System.out.println("Ascending(1) or descending(2)?");
+				System.out.println("Ascending(1) or descending(0)?");
+				Boolean isAsc = (scnr.nextInt() != 0);
 				
-				if (isAsc == 1) {
-					
-				}
-				else if (isAsc == 2) {
-					
-				}
+				SortList(bList, true, isAsc);
 				break;
 			case 3:
-				System.out.println("Ascending(1) or descending(2)?");
-				isAsc = scnr.nextInt();
+				System.out.println("Ascending(1) or descending(0)?");
+				isAsc = (scnr.nextInt() != 0);
 				
-				if (isAsc == 1) {
-					
-				}
-				else if (isAsc == 2) {
-					
-				}
+				SortList(bList, false, isAsc);
 				break;
 			}
 		}
@@ -69,7 +59,7 @@ public class App {
 			//sort by author
 			if (sortAsc) {
 				//sort ascending
-				;
+				
 			}
 			else {
 				//desc
